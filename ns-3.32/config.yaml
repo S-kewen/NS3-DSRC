@@ -1,0 +1,73 @@
+ns3:
+  nodeCount: 3
+
+cache:
+  none: 
+    enable: True
+    isSave: True
+    isShow: False
+  location-stiching:
+    enable: True
+    queueLength: 10
+    isSave: True
+    isShow: False
+  mc-stiching:
+    enable: True
+    queueLength: 10
+    isSave: True
+    isShow: False
+  icp:
+    enable: True
+    queueLength: 10
+    voxelSize: 0.75
+    isSave: True
+    isShow: False
+
+exp:
+  gpu: 0
+  cudnn: True
+  path: /mnt/data/skewen/kittiGenerator/output/20221101_2_50_0_100/object/training
+  train_path: /mnt/data/skewen/dataset/kitti/object/training
+  eval_path: /mnt/data/skewen/dataset/kitti/object/training
+  nPoints: 16384
+  sectorSize: 87
+  packetLossRateList: [0.0, 0.2, 0.4, 0.6, 0.8, "ns3"] #[0.0, 0.2, 0.4, 0.6, 0.8, "ns3"]
+  interpolationList: ["pointinet_0.5", "pointinet_sb_0.5", "pointinet_grid_0.5", "pointinet_voxel_0.5", "pointinet_geometric_0.5", "pointinet_farthest_0.5", "identity", "align_icp", "scene_flow_0.5"]
+  sourceMac: 0
+  receiveMac: 2
+
+  none: 
+    enable: False
+  location-stiching:
+    enable: False
+    queueLength: 10
+  mc-stiching:
+    enable: False
+    queueLength: 10
+  icp:
+    enable: True
+    queueLength: 10
+    voxelSize: 5
+
+  interpolation:
+    enable: True
+    pointinet:
+      enable: True
+    identity:
+      enable: False
+    align-icp:
+      enable: False
+      voxelSize: 0.75
+    scene-flow:
+      enable: False
+
+  evaluate:
+    enable: True
+    
+    snn-rmse: True
+    runningTime: True
+    acd: True
+    cd: True
+    cd-psnr: True
+    hd: True
+    emd: False
